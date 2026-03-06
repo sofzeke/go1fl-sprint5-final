@@ -20,7 +20,7 @@ func Info(dataset []string, dp DataParser) {
 	// Получаем строку с информацией об активности с помощью метода ActionInfo()
 		info, err := dp.ActionInfo()
 		if err != nil {
-			// При ошибке получения информации логируем её
+	// При ошибке получения информации логируем её
 			log.Printf("Error info: %v", err)
 			continue
 	}

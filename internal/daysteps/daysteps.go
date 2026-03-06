@@ -60,11 +60,11 @@ func (ds DaySteps) ActionInfo() (string, error) {
 	// Вычислите количество сожжённых калорий. При возникновении ошибки верните пустую строку и ошибку
 	caloriesBurned:= 0.0
 
-	kkal, err := spentenergy.WalkingSpentCalories(ds.Steps, ds.Weight, ds.Height, ds.Duration)
+	calories, err := spentenergy.WalkingSpentCalories(ds.Steps, ds.Weight, ds.Height, ds.Duration)
 	if err != nil {
 		return "", err
 	}
-	caloriesBurned = kkal
+	caloriesBurned = calories
 
 	str := fmt.Sprintf("Количество шагов: %d.\nДистанция составила %.2f км.\nВы сожгли %.2f ккал.\n", ds.Steps, distance, caloriesBurned)
 	return str, nil

@@ -64,17 +64,17 @@ func (t Training) ActionInfo() (string, error) {
 	// Проверить, какой вид тренировки содержится в структуре Training
 	switch t.TrainingType {
 	case "Ходьба":
-		kkal, err := spentenergy.WalkingSpentCalories(t.Steps, t.Weight, t.Height, t.Duration)
+		calories, err := spentenergy.WalkingSpentCalories(t.Steps, t.Weight, t.Height, t.Duration)
 		if err != nil {
 			return "", err
 		}
-		caloriesBurned = kkal
+		caloriesBurned = calories
 	case "Бег":
-		kkal, err := spentenergy.RunningSpentCalories(t.Steps, t.Weight, t.Height, t.Duration)
+		calories, err := spentenergy.RunningSpentCalories(t.Steps, t.Weight, t.Height, t.Duration)
 		if err != nil {
 			return "", err
 		}
-		caloriesBurned = kkal
+		caloriesBurned = calories
 	}
 	// Сформируйте и верните строку по образцу
 	str := fmt.Sprintf("Тип тренировки: %s\nДлительность: %.2f ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n", t.TrainingType, t.Duration.Hours(), distance, averageSpeed, caloriesBurned)
