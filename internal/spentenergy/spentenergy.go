@@ -56,7 +56,7 @@ func RunningSpentCalories(steps int, weight, height float64, duration time.Durat
 
 func MeanSpeed(steps int, height float64, duration time.Duration) float64 {
 	//добавить проверки отрицательных шагов (должно возвращать 0)
-	if steps < 0 {
+	if steps <= 0 {
 		return 0
 	}
 	//Проверить, что продолжительность duration больше 0. Если это не так, вернуть 0.
@@ -76,9 +76,9 @@ func MeanSpeed(steps int, height float64, duration time.Duration) float64 {
 func Distance(steps int, height float64) float64 {
 	//рассчитываем длину шага
 	lengthStep := height*stepLengthCoefficient
-	 // Умножаем количество шагов на длину шага 
-	 totalDistanceMeters := float64(steps) * lengthStep
-	 // Переводим метры в километры: делим на число метров в километре
+	// Умножаем количество шагов на длину шага 
+	totalDistanceMeters := float64(steps) * lengthStep
+	// Переводим метры в километры: делим на число метров в километре
     distanceKm := totalDistanceMeters / mInKm
 
 	return distanceKm
